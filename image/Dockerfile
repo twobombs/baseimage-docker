@@ -3,6 +3,8 @@ MAINTAINER Phusion <info@phusion.nl>
 
 COPY . /bd_build
 
+RUN apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get -y autoremove && apt-get clean all 
+
 RUN /bd_build/prepare.sh && \
 	/bd_build/system_services.sh && \
 	/bd_build/utilities.sh && \
